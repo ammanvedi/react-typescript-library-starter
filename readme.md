@@ -1,23 +1,50 @@
-# React Overlay Manager
-[![npm version](https://badge.fury.io/js/react-overlay-manager.svg)](https://www.npmjs.com/package/react-overlay-manager)
-[![codecov](https://codecov.io/gh/ammanvedi/react-overlay-manager/branch/master/graph/badge.svg?token=FMZZ527BNG)](https://codecov.io/gh/ammanvedi/react-overlay-manager)
-[![](https://img.shields.io/badge/%F0%9F%93%96-Documentation-blue)](https://ammanvedi.github.io/react-overlay-manager/?path=/story/documentation-introduction--page)
-![ts](https://img.shields.io/github/languages/top/ammanvedi/react-overlay-manager)
-[![](https://img.shields.io/npm/dw/react-overlay-manager)](https://www.npmjs.com/package/react-overlay-manager)
-[![](https://img.shields.io/npm/l/react-overlay-manager)](https://www.npmjs.com/package/react-overlay-manager)
-[![](https://img.shields.io/bundlephobia/minzip/react-overlay-manager)](https://bundlephobia.com/package/react-overlay-manager@2.0.6)
-![](https://img.shields.io/badge/yes-i%20like%20badges-orange)
+# Typescript NPM Module Template
 
-React Overlay Manager is a set of React components for positioning floating overlays over your application
-in a declarative manner. It has the following features;
+This project provides a starting point for a npm module written in typescript
 
-1. Place overlays in a declarative manner in one of 8 positions
-2. Automatically stack overlays
-3. Order overlays with priorities
-4. Avoid existing UI elements, for example navigation bars.
-5. Define rules for positioning overlay based on media queries
-6. Constraints on display for example limiting number of overlays in a certain position
+It will handle the following
 
-[See Full Documentation Here!](https://ammanvedi.github.io/react-overlay-manager/?path=/story/documentation-introduction--page)
+1. Testing with Jest
+2. Docs with storybook
+3. React dependency as a webpack external
+4. Building with tsc
+5. Publishing via Github Actions
+6. Linting with ESLint
+7. Formatting with Prettier
+8. `.d.ts` file generation
 
-![](https://i.imgur.com/cykX35z.gif)
+## Tour
+
+`.github`
+This folder contains the release workflow, it will build test and then release the code to NPM based on the version passed in the action parameter
+
+![](https://i.imgur.com/ECHoBAf.gif)
+
+`src`
+Contains all source files, to start there is just a basic index file
+
+`src/test`
+The test directory contains test sources
+
+## Usage
+
+### Update package.json
+
+You will need to update the following entries in package.json
+
+```json
+  "name": "update-package-name",
+  "author": "UPDATE-you@email.com",
+  "license": "UPDATE",
+  "keywords": [
+    "UPDATE"
+  ],
+```
+### NPM_TOKEN
+
+You will then need to add an environment variable named `NPM_TOKEN` to your github repository secrets
+
+
+![](https://i.imgur.com/MyyGhbv.png)
+
+Enjoy!

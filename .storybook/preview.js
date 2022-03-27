@@ -1,6 +1,3 @@
-import { OverlayContextProvider } from '../src/overlay-context';
-import { OverlayPosition, PositionConstraints } from '../src/types';
-
 export const parameters = {
     docs: { inlineStories: false },
     actions: { argTypesRegex: '^on[A-Z].*', disabled: true },
@@ -21,48 +18,8 @@ export const parameters = {
     },
 };
 
-const getRRules = (id) => {
-    switch (id) {
-        case 'hidden-stories--constraint-max-items':
-            return {
-                [OverlayPosition.TOP_FULL_WIDTH]: {
-                    '(min-width: 0px)': {
-                        position: OverlayPosition.TOP_FULL_WIDTH,
-                        constraints: [
-                            {
-                                type: PositionConstraints.MAX_ITEMS,
-                                max: 3,
-                            },
-                        ],
-                    },
-                },
-            };
-        default:
-            return {
-                [OverlayPosition.TOP_RIGHT]: {
-                    '(max-width: 900px)': {
-                        position: OverlayPosition.TOP_FULL_WIDTH,
-                        constraints: null,
-                    },
-                },
-                [OverlayPosition.TOP_LEFT]: {
-                    '(max-width: 900px)': {
-                        position: OverlayPosition.TOP_FULL_WIDTH,
-                        constraints: null,
-                    },
-                },
-                [OverlayPosition.TOP_CENTER]: {
-                    '(max-width: 900px)': {
-                        position: OverlayPosition.TOP_FULL_WIDTH,
-                        constraints: null,
-                    },
-                },
-            };
-    }
-};
-
 export const decorators = [
-    (Story, p) => {
+    (Story) => {
         /**
          * Yes this is a hack.
          *
@@ -71,7 +28,7 @@ export const decorators = [
          * I want to be able to have only MDX pages without any actual stories being listed
          * because they dont actually make any sense without the MDX.
          */
-        const hideItems = ['[data-item-id="hidden-stories"]', '.search-field'];
+        const hideItems = ['[data-item-id="hidden-stories"]'];
         hideItems.map((i) => {
             const itm = window.parent.parent.document.querySelector(i);
             if (itm) {
@@ -80,11 +37,7 @@ export const decorators = [
         });
 
         return (
-            <OverlayContextProvider responsiveRules={getRRules(p.id)}>
-                <div className="story-wrap">
-                    <Story />
-                </div>
-            </OverlayContextProvider>
+            <Story />
         );
     },
 ];

@@ -1,14 +1,8 @@
 {
-  "name": "react-overlay-manager",
+  "name": "react-typescript-library-starter",
   "author": "amman.vedi@gmail.com",
-  "keywords": [
-    "react",
-    "overlay",
-    "safe area"
-  ],
   "license": "MIT",
-  "version": "2.0.8",
-  "description": "Position overlays over your application in a declarative manner",
+  "version": "1.0.0",
   "scripts": {
     "test": "./node_modules/.bin/jest",
     "build": "export NODE_OPTIONS=--openssl-legacy-provider && npm run build-ci",
