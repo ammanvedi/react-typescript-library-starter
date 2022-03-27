@@ -1,0 +1,25 @@
+name: Coverage
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  Coverage:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v2
+
+      - name: Install & Test
+        run: |
+          npm ci
+          npm test -- --coverage
+
+      - name: Coverage
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
